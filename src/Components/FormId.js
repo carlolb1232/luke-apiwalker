@@ -2,17 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-
-const Form = (props) => {
-
+const FormId = (props) => {
   const { id } = useParams();
 
   console.log()
   const API_URL = "https://swapi.dev/api";
 
   let select1 = "people";
-  let input1 = 1;
+  let input1 = id;
   let object = {};
+
+  
+  
   const getData = async (category, id) =>{
     try {
       const response = await axios.get(`${API_URL}/${category}/${id}`)
@@ -35,6 +36,10 @@ const Form = (props) => {
       document.getElementById("data-container").append(img)
     }
   }
+
+  useEffect(() => {
+    getData(select1, input1)
+  }, []);
 
   const handleSelect = (e) => {
     const { value } = e.target;
@@ -79,4 +84,4 @@ const Form = (props) => {
   );
 }
 
-export default Form;
+export default FormId;
