@@ -7,8 +7,12 @@ function App() {
   return (
       <BrowserRouter>
         <div className="App">
-          <Route path="/:id" render={(routeProps)=><FormId routeProps={routeProps}/>} />
-          <Route path="/" render={()=><Form />} />
+          <Route path="/">
+            <Form />
+          </Route>
+          <Route path="/:id">
+            <FormId />
+          </Route>
         </div>
       </BrowserRouter>
   );

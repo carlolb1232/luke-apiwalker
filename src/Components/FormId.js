@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from "./Form.module.css"
 
 const FormId = (props) => {
   const { id } = useParams();
@@ -60,25 +61,7 @@ const FormId = (props) => {
   
   return (
     <div>
-      <form onSubmit={ handleSubmit }>
-        <div className='form-group'>
-          <label>ELIJA EL SELECT: </label>
-          <select onChange = { handleSelect }>
-            <option value="people" key="people">people</option>
-            <option value="films" key="films">films</option>
-            <option value="starships" key="starships">starships</option>
-            <option value="vehicles" key="vehicles">vehicles</option>
-            <option value="species" key="species">species</option>
-            <option value="planets" key="planets">planets</option>
-          </select>
-          <div className='form-group'>
-            <label>ELIJA ID: </label>
-            <input type="text" onChange={ handleInput } />
-          </div>
-          <button type='submit'>INGRESAR</button>
-        </div>
-      </form>
-      <div id='data-container'>
+      <div id='data-container' className={styles['data-container']}>
       </div>
     </div>
   );
